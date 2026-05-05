@@ -15,7 +15,14 @@ class MyApp extends StatelessWidget {
       create: (_) => AIProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(primarySwatch: Colors.deepPurple, useMaterial3: true),
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: const Color(0xFF121212),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.blueAccent, 
+            brightness: Brightness.dark,
+          ),
+          useMaterial3: true,
+        ),
         home: const HomeScreen(),
       ),
     );
