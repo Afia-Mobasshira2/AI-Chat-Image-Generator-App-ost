@@ -22,12 +22,45 @@ class ImageScreen extends StatelessWidget {
               child: const Text("Generate Image"),
             ),
             const SizedBox(height: 20),
-            Expanded(
-              child: aiProvider.isImageLoading 
-                ? const Center(child: CircularProgressIndicator())
-                : aiProvider.generatedImageUrl.isEmpty 
-                  ? const Center(child: Text("Enter a prompt to begin"))
-                  : Image.network(aiProvider.generatedImageUrl),
+           
+
+          Expanded(
+              child: Center(
+                child:
+                    aiProvider.isImageLoading
+                        ? const CircularProgressIndicator()
+                        : aiProvider.generatedImageUrl.isEmpty
+                        ? const Icon(
+                          Icons.image_search,
+                          size: 100,
+                          color: Colors.white24,
+                        )
+                        : Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.blueAccent.withOpacity(0.3),
+                                blurRadius: 20,
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.network(
+                              aiProvider.generatedImageUrl,
+                              loadingBuilder: (
+                                context,
+                                child,
+                                loadingProgress,
+                              ) {
+                                if (loadingProgress == null) return child;
+                                return const CircularProgressIndicator();
+                              },
+                            ),
+                          ),
+                        ),
+              ),
             )
           ],
         ),
