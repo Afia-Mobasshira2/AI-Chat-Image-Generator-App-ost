@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/ai_provider.dart';
+import 'package:the_ai_chat_llm/providers/ai_provider.dart';
+
 
 class ImageScreen extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();

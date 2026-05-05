@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:dart_openai/dart_openai.dart';
-import '../models/chat_model.dart';
-import '../services/openai_service.dart';
+import 'package:the_ai_chat_llm/models/chat_model.dart';
+import 'package:the_ai_chat_llm/services/openai_service.dart';
+
 
 class AIProvider with ChangeNotifier {
   final AIService _aiService = AIService();
