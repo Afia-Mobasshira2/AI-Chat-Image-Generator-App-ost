@@ -2,7 +2,7 @@ import 'package:dart_openai/dart_openai.dart';
 
 class AIService {
   AIService() {
-    OpenAI.apiKey = 'YOUR_OPENAI_API_KEY';
+    OpenAI.apiKey = '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';
   }
 
   // Chat logic
